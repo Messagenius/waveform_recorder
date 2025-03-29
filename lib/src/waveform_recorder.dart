@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
-import 'package:gap/gap.dart';
 import 'package:waveform_flutter/waveform_flutter.dart';
 
 import 'waveform_recorder_controller.dart';
@@ -92,7 +91,7 @@ class _WaveformRecorderState extends State<WaveformRecorder> {
                   style: widget.durationTextStyle,
                 ),
               ),
-              const Gap(8),
+              const SizedBox(width: 8),
               Expanded(
                 child: AnimatedWaveList(
                   stream: widget.controller.amplitudeStream,
