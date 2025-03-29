@@ -1,3 +1,14 @@
+## 1.7.0
+
+* Expand config beyond just the audio encoder per
+  [PR](https://github.com/csells/waveform_recorder/pull/10) from @LucazzP.
+  Deprecated the old way of specifying the audio encoder; in the future, create
+  a `RecordConfig` and set the `encoder` property of that. Thanks, LucazzP!
+
+* Removing some unused/unneeded packages, again as a
+  [PR](https://github.com/csells/waveform_recorder/pull/9) from @LucazzP.
+  Thanks, again!
+
 ## 1.6.3
 
 * another screenshot tweak

@@ -17,14 +17,16 @@ class WaveformRecorderController extends ChangeNotifier {
   ///
   /// [interval] determines how often amplitude data is emitted (default is
   /// 250ms). [encoder] specifies the audio encoding format (default is
-  /// platform-dependent). [config] sets other settings like bit rate, sample rate, etc.
+  /// platform-dependent). [config] sets other settings like bit rate, sample
+  /// rate, etc.
   WaveformRecorderController({
     this.interval = const Duration(milliseconds: 250),
-    @Deprecated('Use config instead')
-    AudioEncoder? encoder,
+    @Deprecated('Use config instead') AudioEncoder? encoder,
     RecordConfig? config,
   }) : config = RecordConfig(
-          encoder: encoder ?? config?.encoder ?? (kIsWeb ? AudioEncoder.wav : AudioEncoder.aacLc),
+          encoder: encoder ??
+              config?.encoder ??
+              (kIsWeb ? AudioEncoder.wav : AudioEncoder.aacLc),
           numChannels: config?.numChannels ?? 1,
           bitRate: config?.bitRate ?? 128000,
           sampleRate: config?.sampleRate ?? 44100,
@@ -43,7 +45,8 @@ class WaveformRecorderController extends ChangeNotifier {
 
   /// The audio config used for recording.
   ///
-  /// Enconde default is platform-dependent: WAV for web, AAC-LC for other platforms.
+  /// Encode default is platform-dependent: WAV for web, AAC-LC for other
+  /// platforms.
   final RecordConfig config;
 
   Stream<waveform.Amplitude>? _amplitudeStream;
@@ -223,7 +226,10 @@ class WaveformRecorderController extends ChangeNotifier {
   }
 
   String _extFor(AudioEncoder encoder) => switch (encoder) {
-        AudioEncoder.aacLc || AudioEncoder.aacEld || AudioEncoder.aacHe => 'm4a',
+        AudioEncoder.aacLc ||
+        AudioEncoder.aacEld ||
+        AudioEncoder.aacHe =>
+          'm4a',
         AudioEncoder.amrNb || AudioEncoder.amrWb => '3gp',
         AudioEncoder.opus => 'opus',
         AudioEncoder.flac => 'flac',
