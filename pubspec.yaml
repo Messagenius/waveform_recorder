@@ -13,7 +13,11 @@ dependencies:
     sdk: flutter
   path: ^1.9.1
   path_provider: ^2.1.5
-  record: ^6.0.0
+  record:
+    git: 
+      url: https://github.com/Messagenius/record.git
+      ref: a1c93d8e4b4e090352fb0f859da037c5d00a5c43
+      path: record
   waveform_flutter: ^1.2.0
   web: ^1.1.1
 
